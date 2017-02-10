@@ -5,7 +5,7 @@ class AppContainer extends React.Component {
         debugger;
         return (
             <div className="app-wrapper">
-                <h1>It Works ;)</h1>
+                <h1>It Works ;) You're @ {this.props.text}</h1>
             </div>
         );
     }

@@ -8,7 +8,7 @@ let HtmlWebpackPlugin = require('html-webpack-plugin'),
     });
 
 const webpackConfig = {
-    entry: ['./app/index.jsx'],
+    entry: ['./app/index.js'],
     module: {
         loaders: [{
             test: /\.(js|jsx)$/,
