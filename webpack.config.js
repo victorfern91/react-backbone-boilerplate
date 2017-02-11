@@ -8,15 +8,13 @@ let HtmlWebpackPlugin = require('html-webpack-plugin'),
     });
 
 const webpackConfig = {
+    devtool: 'source-map',
     entry: ['./app/index.js'],
     module: {
         loaders: [{
-            test: /\.(js|jsx)$/,
+            test: /\.(js|jsx)$/, // regex pattern for .js and .jsx files
             exclude: /node_modules/,
-            loader: 'babel-loader',
-            query: {
-                presets: ['es2015', 'react', 'stage-0'] // stage-0 enable decorators and async/await features
-            }
+            use: 'babel-loader'
         }]
     },
     output: {
@@ -32,6 +30,9 @@ if (process.env.NODE_ENV === 'production') {
         new webpack.optimize.UglifyJsPlugin({
             output: {
                 comments: false
+            },
+            compress: {
+              warnings: false
             }
         })
     );
