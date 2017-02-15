@@ -1,15 +1,12 @@
-import Router from './router.jsx';
 import $ from 'jquery';
+import Router from './router';
 
 class BoilerPlateApp {
-
-    constructor() {
-        new Router();
-        Backbone.history.start();
-    }
-
+  constructor() {
+    this.router = new Router();
+  }
 }
 
 $(() => {
-    new BoilerPlateApp();
-})
+  this.app = new BoilerPlateApp();
+});
