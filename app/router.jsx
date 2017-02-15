@@ -1,31 +1,33 @@
+/* global document */
 import Backbone from 'backbone';
 import React from 'react';
 import { render } from 'react-dom';
-import App from './components/app.jsx';
+import App from './components/app';
 
 class Router extends Backbone.Router {
 
-    constructor() {
-        super();
-        this.routes = {
-            '': 'home',
-            'test': 'test'
-        };
-        this._bindRoutes();
-    }
+  constructor() {
+    super();
+    this.el = document.getElementById('app-container');
+    this.routes = {
+      '': 'home',
+      route: 'test',
+    };
+    this._bindRoutes();
+    Backbone.history.start();
+  }
 
-    navigateTo (variable) {
-        console.log(`router: ${variable}`);
-        render(<App text={variable} />, document.getElementById('app-container'));
-    }
+  navigateTo(variable) {
+    render(<App text={variable} />, this.el);
+  }
 
-    home() {
-        this.navigateTo('home');
-    }
+  home() {
+    this.navigateTo('home');
+  }
 
-    test() {
-        this.navigateTo('test');
-    }
+  test() {
+    this.navigateTo('test');
+  }
 }
 
 export default Router;
