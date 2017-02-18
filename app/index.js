@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import Router from './router';
 
 class BoilerPlateApp {
@@ -7,6 +6,6 @@ class BoilerPlateApp {
   }
 }
 
-$(() => {
+(() => {
   this.app = new BoilerPlateApp();
-});
+})();
