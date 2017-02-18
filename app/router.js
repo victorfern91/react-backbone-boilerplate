@@ -1,8 +1,6 @@
 /* global document */
 import Backbone from 'backbone';
-import React from 'react';
-import { render } from 'react-dom';
-import App from './components/app';
+import TodoController from './controllers/todoController';
 
 class Router extends Backbone.Router {
 
@@ -11,23 +9,15 @@ class Router extends Backbone.Router {
     this.el = document.getElementById('app-container');
     this.routes = {
       '': 'home',
-      route: 'test',
     };
     this._bindRoutes();
     Backbone.history.start();
   }
 
-  navigateTo(variable) {
-    render(<App text={variable} />, this.el);
-  }
-
   home() {
-    this.navigateTo('home');
+    this.controller = new TodoController({ el: this.el });
   }
 
-  test() {
-    this.navigateTo('test');
-  }
 }
 
 export default Router;
