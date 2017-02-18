@@ -1,10 +1,12 @@
 [
   {
     "name": "task 1",
-    "done": true
+    "done": true,
+    "likes": 0
   },
   {
     "name": "task 2",
-    "done": false
+    "done": false,
+    "likes": 1
   }
 ]
